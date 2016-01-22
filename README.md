@@ -1,2 +1,2 @@
-# fuzzy-umbrella
-fuzzy-umbrella: a python free space optics toolbox
+# fsopy
+fsopy: a python free space optics toolbox
