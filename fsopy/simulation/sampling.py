@@ -5,19 +5,19 @@ import scipy.stats as stats
 __all__ = ['rejection_sampling']
 
 
-def rejection_sampling(density, a, b, K, *args):
-    """ Generates ``K`` samples from ``density`` on the interval ``(a,b)``
-    using a (not-so-optimal) implementation of the acceptance-rejection method.
+def rejection_sampling(density, inter, K, *args):
+    """ Generates ``K`` samples from ``density`` on the interval ``inter``
+    using an implementation of the acceptance-rejection method.
 
     Parameters
     ----------
     density : function
         The expression for the probability density function (pdf).
-    a, b : float, float
+    inter : tuple
         Interval on which the samples will be generated.
-    K : integer
+    K : int
         Number of desired samples
-    args : tuple
+    args :
         Any parameters, if needed, of the pdf.
 
     Return
@@ -25,17 +25,21 @@ def rejection_sampling(density, a, b, K, *args):
     rvs : numpy.ndarray
         1-D array containing ``K`` samples from the distribution ``density``. 
     """
-    x = np.linspace(a, b, K)	
+
+    x = np.linspace(inter[0], inter[1], K)	
     pdf = density(x, *args)
     pdfmax = np.max(pdf)
 
     if np.isnan(pdfmax) or np.isinf(pdfmax):
-    	return "error(rejection_sampling): pdfmax is NaN."
+    	raise ValueError("density is not well defined, pdfmax has either" +
+                          "NaN of inf values.")
     
     K_min = 0
     rvs = np.zeros(1)
     while K_min < K+1:
-    	    u1 = stats.uniform.rvs(loc=a,scale=b-a,size=K)
+    	    u1 = stats.uniform.rvs(loc=inter[0],
+                                   scale=inter[1] - inter[0],
+                                   size=K)
     	    u2 = stats.uniform.rvs(size=K)
     	    idx = np.where(u2<=density(u1,*args)/pdfmax)[0]
     	    rvs = np.concatenate([rvs,u1[idx]])

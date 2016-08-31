@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: fsopy
+Version: 0.0.1
+Summary: Free Space Optics in Python
+Home-page: https://github.com/mirca/fsopy
+Author: Zé Vinícius and Paulo Lins Jr.
+Author-email: jvmirca@gmail.com
+License: MIT
+Description: # fsopy
+        fsopy: a python free space optics toolbox
+        
+Keywords: optics transmission light
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
