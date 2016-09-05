@@ -7,7 +7,13 @@ fsopy.egg-info/requires.txt
 fsopy.egg-info/top_level.txt
 fsopy/distributions/__init__.py
 fsopy/distributions/exp_weibull.py
+fsopy/distributions/gamma_gamma.py
 fsopy/modulations/__init__.py
 fsopy/modulations/ook.py
+fsopy/receiver_operating_characteristic/__init__.py
+fsopy/receiver_operating_characteristic/th_roc.py
 fsopy/simulation/__init__.py
 fsopy/simulation/sampling.py
+fsopy/utils/__init__.py
+fsopy/utils/marcumq.py
+fsopy/utils/progressbar.py

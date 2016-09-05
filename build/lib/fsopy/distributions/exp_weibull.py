@@ -60,7 +60,7 @@ def rvs(K, beta, alpha, eta, inter=None):
     --------
     >>> import numpy as np
     >>> from matplotlib import pyplot as plt
-    >>> from fsopy.distributions.fading import exp_weibull
+    >>> from fsopy import exp_weibull
     >>> samples = exp_weibull.rvs(int(1e6), 1, 1, 1, inter=(1e-6, 4.0))
     >>> plt.hist(samples, bins=100, normed=True)
     >>> r = np.linspace(1e-6, 4., int(1e4))
